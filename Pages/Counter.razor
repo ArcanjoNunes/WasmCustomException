@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter </h1>
+<h2>When reach 5, it throws an exception.</h2>
+<br />
+<h3>And 'dismiss' button causes error recovery.</h3>
+<br />
+
+<p role="status">Current count: @currentCount</p>
+<br />
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        if (currentCount == 5)
+        {
+            throw new Exception("Number is too high!");
+        }
+    }
+}
